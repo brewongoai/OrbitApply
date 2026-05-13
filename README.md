@@ -502,4 +502,4 @@ Disable `autoSubmit` for that session and submit manually. Review the screenshot
 
 ## License
 
-MIT License — free to use, modify, and distribute. See [LICENSE](LICENSE) for details.
+OrbitumAI Free License — free to use, modify, and distribute. See [LICENSE](LICENSE) for details.
