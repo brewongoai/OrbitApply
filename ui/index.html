@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OrbitApply — AI Job Search System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-icon">OA</div>
+        <div>
+          <div class="logo-name">OrbitApply</div>
+          <div class="logo-sub">OrbitumAI</div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-label">MENU</div>
+        <a href="#" class="nav-item active" data-view="dashboard">
+          <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><rect x="1" y="1" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="1" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="9" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="9" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>
+          Dashboard
+        </a>
+        <a href="#" class="nav-item" data-view="profile">
+          <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="5" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Profile Setup
+        </a>
+        <a href="#" class="nav-item" data-view="scout">
+          <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          SCOUT Results
+        </a>
+        <a href="#" class="nav-item" data-view="pipeline">
+          <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><rect x="1" y="3" width="14" height="2.5" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="7" width="10" height="2.5" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="11" width="7" height="2.5" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
+          Pipeline
+        </a>
+        <a href="#" class="nav-item" data-view="humanQueue">
+          <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M8 1l1.5 4.5H15l-4 3 1.5 4.5L8 10.5 3.5 13 5 8.5l-4-3h5.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          Human Queue
+        </a>
+        <a href="#" class="nav-item" data-view="sessions">
+          <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><rect x="2" y="1" width="12" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 5h6M5 8h6M5 11h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Session Logs
+        </a>
+        <a href="#" class="nav-item" data-view="config">
+          <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.05 3.05l1.42 1.42M11.54 11.54l1.41 1.41M3.05 12.95l1.42-1.42M11.54 4.46l1.41-1.41" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Config
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content" id="main-content">
+      <!-- Views injected by JS -->
+    </main>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/views/dashboard.js"></script>
+  <script src="/js/views/profile.js"></script>
+  <script src="/js/views/scout.js"></script>
+  <script src="/js/views/pipeline.js"></script>
+  <script src="/js/views/humanQueue.js"></script>
+  <script src="/js/views/sessions.js"></script>
+  <script src="/js/views/config.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

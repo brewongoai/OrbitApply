@@ -1,0 +1,117 @@
+# .cursorrules — ORBIT Dashboard
+# Owner: Shuv Gangopadhyay — OrbitumAI
+# Single-user, localhost-only AI content operations tool
+
+---
+
+## Project identity
+- Product name: ORBIT Dashboard
+- Owner: Shuv Gangopadhyay (OrbitumAI)
+- Purpose: Solo content creator tool — daily research, competitor analysis, video idea generation, script writing
+- Deployment: localhost only — port 3000, never cloud, never Vercel, never public internet
+
+---
+
+## Stack
+- **Frontend:** React (localhost web app, port 3000)
+- **Backend:** Node.js + Express (`/api/v1/` routes, same port via proxy)
+- **Database:** Google Sheets (4 tabs: Competitors, Research, Video Ideas, Scripts)
+- **File storage:** Google Drive (generated script documents)
+- **AI — Writing:** Anthropic Claude (gap analysis, briefing narrative, idea generation, Reel script, YouTube script)
+- **AI — Enrichment:** OpenAI (scoring, ranking, summarisation, data extraction)
+- **Package manager:** pnpm exclusively — never npm, never yarn
+
+---
+
+## Folder conventions
+- React components → `app/components/` — group by use case in subdirectories
+- Build new UI on top of `/components/ui` primitives
+- All external API service modules → `src/services/` — one file per service
+- Logs → `./logs/app.log` (errors) and `./logs/agent-actions.log` (agentic actions)
+
+---
+
+## Code rules
+- Use pnpm for all installs and scripts
+- Do not install new packages without being asked
+- All external API calls must go through `src/services/` — never inline in routes or components
+- Wrap every external call in try/catch — log error, surface generic message to UI
+- Never send raw API errors, status codes, or stack traces to the frontend
+- Prefer iteration and modularisation over code duplication
+- No magic numbers — use named constants
+- No dead code, commented-out blocks, or TODO comments in committed code
+- No `console.log` in production code — use the logger
+
+---
+
+## Security rules
+- All API keys in `.env` only — never hardcoded
+- `.env` must be in `.gitignore` — never committed
+- Server must bind to `127.0.0.1` — never `0.0.0.0`
+- Mask keys in Settings UI: first 4 chars + `••••` + last 4 chars
+- Validate and sanitise all user inputs before passing to any external API
+- Validate all external API responses before writing to Google Sheets
+
+---
+
+## Data rules
+- Google Sheets is the sole database — treat it carefully
+- **Append only** — never delete or overwrite existing rows
+- Truncate field lengths before Sheets writes: 5000 chars for script fields, 500 chars for titles
+- Google Drive: create a new document per approved script — never overwrite
+- OAuth refresh tokens handled server-side only
+
+---
+
+## AI spend rules
+- Anthropic + OpenAI session spend cap: $10
+- Estimate token usage before large batch AI calls — abort if over cap
+- If approaching the cap → stop and report to the user
+- Never loop more than 5 retries on any task
+
+---
+
+## What to ALWAYS ASK before doing
+- Deleting any file or Google Sheets row
+- Pushing to any git branch
+- Making external API calls (especially paid: Anthropic, OpenAI, Tavily, YouTube, GitHub)
+- Modifying `.env` or any config file
+- Writing to Google Sheets or Google Drive outside the normal run flow
+- Installing new dependencies
+- Exposing the app beyond localhost
+
+---
+
+## UI rules (design system)
+- **Font:** Inter (Google Fonts) — `font-family: 'Inter', sans-serif` applied globally; weights 400 / 500 / 600 / 700
+- **Theme:** Light/warm — Crextio-inspired; cream/beige base (`#F5F0E6`), white cards (`#FFFFFF`), dark hero card (`#1E1E28`)
+- **Primary accent:** Golden yellow (`#EAB308`) — buttons, active nav, OPEN LANE badge, progress fills
+- **Text:** Primary `#111827`, Secondary `#6B7280`, on-dark `#F9FAFB`
+- **Border:** `#E5E0D5` (light cards), `#2D2D3A` (dark card)
+- **Border radius:** 12px cards, 8px buttons, 20px badges
+- Every screen opens with a stat card row (4 cards max) — first card uses yellow-tinted background (`#FEF9EC`)
+- Fixed left sidebar, 220px, 6 nav items — no hamburger menu; active item: yellow left border + yellow-tinted bg
+- All async operations show live step-by-step progress — never a spinner alone
+- OPEN LANE badge in yellow (`#EAB308`) is always the highest-priority signal on any screen
+- No illustrations, no gradients, no hero images — every element is functional
+- App runs on localhost:3000 — never cloud, never Vercel, never public internet
+
+---
+
+## Agentic action log format
+All agent actions must be logged to `./logs/agent-actions.log`:
+`[timestamp] [action] [files affected] [outcome]`
+
+---
+
+## References
+- Full architecture: `.ai-docs/architect.md`
+- Full design spec: `.ai-docs/design.md`
+- Security implementation: `.ai-docs/security_implement.md`
+- Agent guardrails: `.ai-docs/agent-watcher.md`
+- Code review checklist: `.ai-docs/code_reviewer.md`
+- Test standards: `.ai-docs/test_writer.md`
+- Bug protocol: `.ai-docs/bug_error_fix.md`
+- Compliance (build): `.ai-docs/compliance_builder.md`
+- Compliance (review): `.ai-docs/compliance_reviewer.md`
+- Security review checklist: `.ai-docs/security_review.md`

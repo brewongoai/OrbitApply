@@ -1,0 +1,40 @@
+# Secrets
+.env
+credentials/auth-profiles.json
+APIKEYS.MD
+APIKEYS.md
+apikeys.md
+
+# Dependencies
+node_modules/
+
+# Runtime data (personal — never commit)
+memory/profile.json
+memory/protected.json
+memory/blacklist.json
+memory/resume.md
+sessions/sessions.json
+workspace-scout/
+workspace-tailor/
+workspace-recon/
+workspace-submit/
+workspace-ledger/
+workspace-coach/
+logs/*.log
+
+# Generated application output (personal — your resumes, cover letters, job data)
+Apply/
+
+# Personal documents
+*.docx
+OrbitApply_PRD_v1.0.docx
+OrbitApplySetup.md
+
+# Build
+dist/
+coverage/
+
+# OS
+.DS_Store
+Thumbs.db
+.vscode/

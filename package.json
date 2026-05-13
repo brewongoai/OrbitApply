@@ -1,0 +1,25 @@
+{
+  "name": "orbitapply",
+  "version": "1.0.0",
+  "description": "OrbitApply — AI-powered autonomous job search and application system",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "jest --passWithNoTests",
+    "coverage": "jest --coverage --passWithNoTests"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.50.4",
+    "axios": "^1.7.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "playwright": "^1.60.0",
+    "winston": "^3.13.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.3"
+  }
+}
